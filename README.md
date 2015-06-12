@@ -1,9 +1,11 @@
-Nestable with 5 little callbacks
+Nestable with 5 little callbacks and method 'dragStopAbort'
 ========
 
 ## This is a modified version of Nestable
 
 Original can be found here: https://github.com/dbushell/Nestable
+
+ * Now, after the 'feedback.abort = true', the item return to original position. The method called is the 'dragStopAbort'. The index and parent index were needed.
 
 ## Example
 ```
