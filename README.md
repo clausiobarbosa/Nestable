@@ -44,6 +44,4 @@ $('#example-list-element').nestable({
 
 Original Author: David Bushell [http://dbushell.com](http://dbushell.com/) [@dbushell](http://twitter.com/dbushell/)
 
-Big thanks to @bigfoot90 !
-
 Copyright © 2012 David Bushell | BSD & MIT license
