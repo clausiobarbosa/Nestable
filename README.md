@@ -7,14 +7,10 @@ Original can be found here: https://github.com/dbushell/Nestable
 
  * Now, after the 'feedback.abort = true', the item return to original position. The method called is the 'dragStopAbort'. The index and parent index were needed.
 
-## Example
+## Example JS
 ```
-$('#example-list-element').nestable({
-    afterInit: function ( event ) { 
-        console.log( event ); 
-    }
-})
-.on('beforeDragStart', function(handle) {
+$('#nestable').nestable({
+}).on('beforeDragStart', function(handle) {
     console.log('dragStart', handle);
 })
 .on('dragStart', function(event, item, source) {
@@ -39,6 +35,44 @@ $('#example-list-element').nestable({
 
     console.log('dragEnd', event, item, source, destination, position);
 });
+```
+## Example HTML
+```
+<div class="dd" id="nestable">
+        <ol class="dd-list">
+            <li class="dd-item" data-id="1" data-order="1">
+                <div class="dd-handle">1 - Lorem ipsum</div>
+            </li>
+            <li class="dd-item" data-id="2" data-order="2">
+                <div class="dd-handle">2 - Dolor sit</div>
+                <ol class="dd-list">
+                    <li class="dd-item" data-id="3" data-idparent="2" data-order="1">
+                        <div class="dd-handle">3 - Adipiscing elit</div>
+                    </li>
+                    <li class="dd-item" data-id="4" data-idparent="2" data-order="2">
+                        <div class="dd-handle">4 - Nonummy nibh</div>
+                    </li>
+                </ol>
+            </li>
+            <li class="dd-item" data-id="5" data-order="3">
+                <div class="dd-handle">5 - Consectetuer</div>
+                <ol class="dd-list">
+                    <li class="dd-item" data-id="6" data-idparent="5" data-order="1">
+                        <div class="dd-handle">6 - Aliquam erat</div>
+                    </li>
+                    <li class="dd-item" data-id="7" data-idparent="5" data-order="2">
+                        <div class="dd-handle">7 - Veniam quis</div>
+                    </li>
+                </ol>
+            </li>
+            <li class="dd-item" data-id="8" data-order="4">
+                <div class="dd-handle">8 - Tation ullamcorper</div>
+            </li>
+            <li class="dd-item" data-id="9" data-order="5">
+                <div class="dd-handle">9 - Ea commodo</div>
+            </li>
+        </ol>
+</div>
 ```
 * * *
 
