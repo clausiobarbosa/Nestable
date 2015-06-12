@@ -346,7 +346,7 @@
             var el = this.dragEl.children(this.options.itemNodeName).first();
             el[0].parentNode.removeChild(el[0]);
             var order = el.data('order');
-            var parent = el.data('idParent');
+            var parent = el.data('idparent');
             var firstItem = order == 1;
 
             if (parent != undefined) { // there parent
