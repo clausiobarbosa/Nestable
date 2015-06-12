@@ -346,21 +346,21 @@
             var el = this.dragEl.children(this.options.itemNodeName).first();
             el[0].parentNode.removeChild(el[0]);
             var ordem = el.data('ordem');
-            var idFather = el.data('idpai');
+            var parent = el.data('idpai');
 
-            if (idFather != undefined && idFather != '') { // existe pai
+            if (parent != undefined && parent != '') { // existe pai
 
-                if (sourceList.find('.dd-item[data-id="' + idFather + '"]').find('.dd-list:first').length == 0) // não tem nenhum filho
+                if (sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first').length == 0) // não tem nenhum filho
                 {
-                    sourceList.find('.dd-item[data-id="' + idFather + '"]').append('<ol class="dd-list"></ol>');
-                    sourceList.find('.dd-item[data-id="' + idFather + '"]').find('.dd-list:first').append(this.placeEl);
+                    sourceList.find('.dd-item[data-id="' + parent + '"]').append('<ol class="dd-list"></ol>');
+                    sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first').append(this.placeEl);
                 } else {
                     if (ordem == 1) {
                         ordem = ordem + 1;
-                        sourceList.find('.dd-item[data-id="' + idFather + '"]').find('.dd-list:first > li[data-ordem="' + ordem + '"]').before(this.placeEl);
+                        sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first > li[data-ordem="' + ordem + '"]').before(this.placeEl);
                     } else {
                         ordem = ordem - 1;
-                        sourceList.find('.dd-item[data-id="' + idFather + '"]').find('.dd-list:first > li[data-ordem="' + ordem + '"]').after(this.placeEl);
+                        sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first > li[data-ordem="' + ordem + '"]').after(this.placeEl);
                     }
                 }
 
