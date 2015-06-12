@@ -345,33 +345,34 @@
         dragStopAbort: function (e, sourceList) {
             var el = this.dragEl.children(this.options.itemNodeName).first();
             el[0].parentNode.removeChild(el[0]);
-            var ordem = el.data('ordem');
-            var parent = el.data('idpai');
+            var order = el.data('order');
+            var parent = el.data('idParent');
+            var firstItem = order == 1;
 
-            if (parent != undefined && parent != '') { // existe pai
+            if (parent != undefined) { // there parent
 
-                if (sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first').length == 0) // não tem nenhum filho
+                if (sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first').length == 0) // without children
                 {
                     sourceList.find('.dd-item[data-id="' + parent + '"]').append('<ol class="dd-list"></ol>');
                     sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first').append(this.placeEl);
                 } else {
-                    if (ordem == 1) {
-                        ordem = ordem + 1;
-                        sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first > li[data-ordem="' + ordem + '"]').before(this.placeEl);
+                    if (firstItem) {
+                        order = order + 1;
+                        sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first > li[data-order="' + order + '"]').before(this.placeEl);
                     } else {
-                        ordem = ordem - 1;
-                        sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first > li[data-ordem="' + ordem + '"]').after(this.placeEl);
+                        order = order - 1;
+                        sourceList.find('.dd-item[data-id="' + parent + '"]').find('.dd-list:first > li[data-order="' + order + '"]').after(this.placeEl);
                     }
                 }
 
             } else {
 
-                if (ordem == 1) {
-                    ordem = ordem + 1;
-                    sourceList.find('.dd-list:first > li[data-ordem="' + ordem + '"]').before(this.placeEl);
+                if (firstItem) {
+                    order = order + 1;
+                    sourceList.find('.dd-list:first > li[data-order="' + order + '"]').before(this.placeEl);
                 } else {
-                    ordem = ordem - 1;
-                    sourceList.find('.dd-list:first > li[data-ordem="' + ordem + '"]').after(this.placeEl);
+                    order = order - 1;
+                    sourceList.find('.dd-list:first > li[data-order="' + order + '"]').after(this.placeEl);
                 }
             }
 
